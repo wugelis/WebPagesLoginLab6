@@ -1,0 +1,22 @@
+﻿@page
+@model WebPagesLoginLab6.Pages.LoginModel
+@{
+}
+
+<div class="text-center">
+    <h1 class="display-4">Login</h1>
+    <p>Use this form to log in.</p>
+    <form method="post">
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="AccountData.Email"></label>
+            <input asp-for="AccountData.Email" class="form-control" />
+            <span asp-validation-for="AccountData.Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="AccountData.Password"></label>
+            <input asp-for="AccountData.Password" class="form-control" />
+            <span asp-validation-for="AccountData.Password" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Log in</button>
+    </form>

@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34607.119
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebPagesLoginLab6", "WebPagesLoginLab6\WebPagesLoginLab6.csproj", "{4704719B-E647-48E2-919A-5136F4028556}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "方案項目", "方案項目", "{5DBF89BD-7BE4-4A9E-A5C3-9CB811D92F61}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4704719B-E647-48E2-919A-5136F4028556}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4704719B-E647-48E2-919A-5136F4028556}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4704719B-E647-48E2-919A-5136F4028556}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4704719B-E647-48E2-919A-5136F4028556}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {23CFE924-C243-48B8-AC45-603DA5E04D35}
+	EndGlobalSection
+EndGlobal
