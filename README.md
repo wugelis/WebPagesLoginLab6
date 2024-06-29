@@ -1,1 +1,3 @@
-# Core Identity µ²¦X Authorize ¹ê§@°ò¥»µn¤J¥\¯à
+ï»¿# ASP.NET Core Razor Pages ç¯„ä¾‹ç¨‹å¼
+
+## Core Identity çµåˆ Authorize å¯¦ä½œåŸºæœ¬ç™»å…¥åŠŸèƒ½
