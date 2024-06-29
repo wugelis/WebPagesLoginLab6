@@ -1,0 +1,28 @@
+﻿@page
+@model WebPagesLoginLab6.Pages.AboutModel
+@{
+    var parms = new Dictionary<string, string>
+            {
+                { "speakerId", "11" },
+                { "currentYear", "true" }
+            };
+}
+
+<div>
+    <a asp-route="speakerevalscurrent"
+       asp-all-route-data="parms">Speaker Evaluations</a>
+</div>
+
+<div>
+    <a href="/Speaker/EvaluationsCurrent?speakerId=11&currentYear=true">Speaker Evaluations</a>
+</div>
+
+<div>
+    <a asp-controller="Speaker"
+       asp-action="Evaluations"
+       asp-fragment="SpeakerEvaluations">Speaker Evaluations</a>
+</div>
+
+<div>
+    <a href="/Speaker/Evaluations#SpeakerEvaluations">Speaker Evaluations</a>
+</div>

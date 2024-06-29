@@ -1,32 +1,43 @@
+using EasyArchitectCore.Core;
 using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Mvc;
 using WebPagesLoginLab6;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddHttpContextAccessor();
-builder.Services.AddRazorPages(options =>
-{
-    options.Conventions.AuthorizePage("/", "MyPolicy");
-    //options.Conventions.AuthorizePage("/Privacy");
-});
+#pragma warning disable ASP5001 // 類型或成員已經過時
+#pragma warning disable CS0618 // 類型或成員已經過時
+builder.Services.AddMvc()
+    .SetCompatibilityVersion(CompatibilityVersion.Version_3_0)
+    .AddRazorOptions(options =>
+    {
+        options.AreaPageViewLocationFormats.Add("/Pages/Shared/{0}.cshtml");
+    });
+#pragma warning restore CS0618 // 類型或成員已經過時
+#pragma warning restore ASP5001 // 類型或成員已經過時
+builder.Services.AddRazorPages();
 builder.Services.AddAuthentication(configure =>
 {
     configure.DefaultAuthenticateScheme = CookieAuthenticationDefaults.AuthenticationScheme;
     configure.DefaultScheme = CookieAuthenticationDefaults.AuthenticationScheme;
 }).AddCookie(options =>
 {
-    options.LoginPath = "/Login";
-    options.ExpireTimeSpan = TimeSpan.FromMinutes(5);
+    options.LoginPath = builder.Configuration.GetValue<string>("AppSettings:LoginPage");
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(builder.Configuration.GetValue<int>("AppSettings:TimeoutMinutes"));
     options.Cookie.HttpOnly = true;
     options.Events = new CookieAuthenticationEvents()
     {
         OnRedirectToReturnUrl = async (context) =>
         {
-            context.HttpContext.Response.Cookies.Delete(UserInfo.LOGIN_USER_INFO);
+            context.HttpContext.Response.Cookies.Delete("_LOGIN_USER_INFO");
         }
     };
 });
+
+//IConfigurationSection configurationRoot = builder.Configuration.GetSection("AppSettings");
+//builder.Services.Configure<AppSetting>()
 
 var app = builder.Build();
 
@@ -42,7 +53,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
+app.UseCustomConfigurationManager();
 app.UseAuthentication();
 app.UseAuthorization();
 

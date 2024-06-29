@@ -1,6 +1,10 @@
 ﻿@page
 @model WebPagesLoginLab6.Pages.LoginModel
 @{
+    var parms = new Dictionary<string, string>
+            {
+                { "Id", "1" }
+            };
 }
 
 <div class="text-center">
@@ -15,8 +19,13 @@
         </div>
         <div class="form-group">
             <label asp-for="AccountData.Password"></label>
-            <input asp-for="AccountData.Password" class="form-control" />
+            <input asp-for="AccountData.Password" class="form-control" type="password" />
             <span asp-validation-for="AccountData.Password" class="text-danger"></span>
         </div>
         <button type="submit" class="btn btn-primary">Log in</button>
     </form>
+ </div>
+
+ <div>
+     <a asp-page="/EditLogin" asp-route-id="1">Go to Edit Page</a>
+ </div>
